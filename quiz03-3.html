@@ -1,0 +1,36 @@
+<html>
+        <head>
+        </head>
+        <body> 
+            <div id="app">
+                <child-component v-bind:propsdata="message"></child-component>
+                <sibling-component v-bind:propsdata2="anotherMessage"></sibling-component>
+    
+            </div>
+    
+            <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js">
+            </script>
+    
+            <script>
+                Vue.component('sibling-component',{
+                    template : '<p>{{propsdata2}}</p>',
+                    props : ['propsdata2']
+                });
+
+                Vue.component('child-component',{
+                    props: ['propsdata'],
+                    template: '<p>{{propsdata}}</p>'
+                });
+
+                var app = new Vue({
+                    el:'#app',
+                    data : {
+                        message : 'Hello Vue!',
+                        anotherMessage : ' This is propsdata 2 . I hope it changed well'
+                    }
+                });
+
+
+                </script>
+        </body>
+    </html>
