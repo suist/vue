@@ -1,0 +1,77 @@
+<html>
+        <head>
+            
+        </head>
+        <body> 
+            <div id="app">
+                <header>
+                    <h3>
+                        {{message}},
+                        {{sueMessage}}
+
+
+                    </h3>
+                </header>
+                <section>
+                    <p v-bind:id="uid"></p>
+                    <button v-on:click="clickBtn">alert</button>
+                    <!-- // v-on: 간소화=> @ 
+                    //button @click= -->
+
+                    <button @click="eventMethod">Sue's event</button>
+
+                    <ul v-if="flag"> 
+                        <!-- v-show 비슷하지만 css none으로 표사 -->
+                
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+
+
+                </section>
+    
+            </div>
+    
+            <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js">
+            </script>
+    
+            <script>
+
+                var app = new Vue({
+                    el : '#app',
+                    data :{
+                        message : 'Hello Vue.js',
+                        sueMessage : 'This is message from sue',
+                        uid : 10, // uid 변경하고 화면 요소 검사에서 기능으로 확인해보기 id 10 -> 20 id 값 변화하는것
+                        flag : true // 값 flag -> false 로 변경했을떄 ? v-if
+
+                    },
+                    methods : {
+                        //ES6문법 
+                        clickBtn() {
+                            console.log("hi");
+                        },
+
+                        //ES5 문법 
+                        //clickBtn: function(){
+                        // console.log("hi");    
+                        //}
+
+                        eventMethod() {
+                            console.log("SUE function operated");
+                        }
+
+                    }
+                })
+
+            
+
+
+
+
+
+                                                     
+                </script>
+        </body>
+    </html>
